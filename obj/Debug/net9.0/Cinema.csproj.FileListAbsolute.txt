@@ -170,3 +170,4 @@ C:\Users\Mr.Robot\Desktop\myprojects\Cinema\obj\Debug\net9.0\refint\Cinema.dll
 C:\Users\Mr.Robot\Desktop\myprojects\Cinema\obj\Debug\net9.0\Cinema.pdb
 C:\Users\Mr.Robot\Desktop\myprojects\Cinema\obj\Debug\net9.0\Cinema.genruntimeconfig.cache
 C:\Users\Mr.Robot\Desktop\myprojects\Cinema\obj\Debug\net9.0\ref\Cinema.dll
+C:\Users\Mr.Robot\Desktop\myprojects\Cinema\obj\Debug\net9.0\Cinema.sourcelink.json
