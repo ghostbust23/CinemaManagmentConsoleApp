@@ -19,7 +19,7 @@ class Program
 
         while (true)
         {
-            Console.WriteLine("\n--- Cinema Controle ---");
+            Console.WriteLine("\n--- Cinema Control ---");
             Console.WriteLine("1.Films list");
             Console.WriteLine("2.Add Film");
             Console.WriteLine("3.Show Halls");
