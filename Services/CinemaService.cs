@@ -81,6 +81,7 @@ namespace Cinema.Services
         {
             return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
         }
+        
 
         public async Task<User> AddUserAsync(string name, string email, string userType)
         {

@@ -121,7 +121,7 @@ class Program
        
         if (!context.Films.Any())
         {
-            context.Films.Add(new Film { Title = "Test Film", Duration = 120, ReleaseYear = 2023, Genre = "Horror", AgeRestriction = "18" });
+            context.Films.Add(new Film { Title = "Test Film", Duration = 120, ReleaseYear = 2023, Genre = "Horror", AgeRestriction = "18", Description = "Testing sql lol"});
             context.Halls.Add(new Hall { Number = 1, Capacity = 60, Type = "Regular" });
             context.Halls.Add(new Hall { Number = 2, Capacity = 15, Type = "VIP" });
             context.Users.Add(new User { Name = "Adios Bobitos", Email = "Adios_Bobitost@gmail.com", UserType = "Client" });
@@ -140,7 +140,14 @@ class Program
     {
         var films = await service.GetFilmsAsync();
         foreach (var film in films)
-            Console.WriteLine($"{film.Id}. {film.Title} ({film.ReleaseYear}) - {film.Duration} mins, Genre: {film.Genre}, {film.AgeRestriction}");
+            Console.WriteLine($"{film.Id}. {film.Title} ({film.ReleaseYear}) \n {film.Duration} mins \n Genre: {film.Genre} \n Age restriction: {film.AgeRestriction} \n Description: {film.Description}");
+    }
+    
+    static async Task User(ICinemaService service)
+    {
+        var films = await service.GetFilmsAsync();
+        foreach (var film in films)
+            Console.WriteLine($"{film.Id}. {film.Title} ({film.ReleaseYear}) \n {film.Duration} mins \n Genre: {film.Genre} \n Age restriction: {film.AgeRestriction} \n Description: {film.Description}");
     }
 
     static async Task AddFilm(ICinemaService service)
@@ -157,6 +164,8 @@ class Program
         int releaseYear = int.Parse(Console.ReadLine());
         Console.Write("Age restriction: ");
         string ageRestriction = Console.ReadLine();
+        Console.Write("Description: ");
+        string description = Console.ReadLine();
 
         var film = new Film
         {
@@ -165,7 +174,8 @@ class Program
             Director = director,
             Duration = duration,
             ReleaseYear = releaseYear,
-            AgeRestriction = ageRestriction
+            AgeRestriction = ageRestriction,
+            Description = description
         };
         await service.AddFilmAsync(film);
         Console.WriteLine("Film added! 5_5");
