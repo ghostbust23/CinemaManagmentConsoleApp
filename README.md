@@ -1,4 +1,4 @@
-Education console app[Using C#, Entity, Sql]
+Education console app[Using C#(DotNet), Entity, Sql]
 
 Simple Cinema management app
 ^_^ 
