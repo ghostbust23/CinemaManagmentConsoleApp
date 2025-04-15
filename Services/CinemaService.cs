@@ -1,10 +1,7 @@
 ﻿using Cinema.Data;
 using Cinema.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace Cinema.Services
 {
@@ -80,6 +77,11 @@ namespace Cinema.Services
         public async Task<User> GetUserByEmailAsync(string email)
         {
             return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+        }
+        
+        public async Task<List<User>> GetUsersAsync()
+        {
+            return await _context.Users.ToListAsync();
         }
         
 

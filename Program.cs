@@ -19,12 +19,12 @@ class Program
 
         while (true)
         {
-            Console.WriteLine("\n--- Cinema Control ---");
+            Console.WriteLine("\n-*-*- Cinema Control -*-*-");
             Console.WriteLine("1.Films list");
             Console.WriteLine("2.Add Film");
             Console.WriteLine("3.Show Halls");
             Console.WriteLine("4.Add Hall");
-            Console.WriteLine("5.Show showtimes");
+            Console.WriteLine("5.Showtimes list");
             Console.WriteLine("6.Add showtime");
             Console.WriteLine("7.Cancel showtime");
             Console.WriteLine("8.Reserve ticket");
@@ -34,8 +34,9 @@ class Program
             Console.WriteLine("12.Add Discount");
             Console.WriteLine("13.Apply Discount");
             Console.WriteLine("14.Add user");
-            Console.WriteLine("15.Show Finance statistics");
-            Console.WriteLine("16.Logout");
+            Console.WriteLine("15.Users list");
+            Console.WriteLine("16.Show Finance statistics");
+            Console.WriteLine("17.Logout");
             Console.Write("Enter option: ");
 
             var choice = Console.ReadLine();
@@ -87,9 +88,12 @@ class Program
                         await RegisterUser(cinemaService);
                         break;
                     case "15":
-                        await ShowFinancialStats(cinemaService);
+                        await ListUsers(cinemaService);
                         break;
                     case "16":
+                        await ShowFinancialStats(cinemaService);
+                        break;
+                    case "17":
                         return;
                     default:
                         Console.WriteLine("Wrong option!");
@@ -127,7 +131,7 @@ class Program
             context.Users.Add(new User { Name = "Adios Bobitos", Email = "Adios_Bobitost@gmail.com", UserType = "Client" });
             context.Discounts.Add(new Discount
             {
-                Description = "10% off for new users",
+                Description = "10% discount for new users",
                 DiscountPercentage = 10,
                 StartDate = DateTime.Now.AddDays(-1),
                 EndDate = DateTime.Now.AddDays(10)
@@ -243,6 +247,23 @@ class Program
 
         var user = await service.AddUserAsync(name, email, userType);
         Console.WriteLine($"User {user.Id} registred!");
+    }
+    
+    static async Task ListUsers(ICinemaService service)
+    {
+        
+        var users = await service.GetUsersAsync();
+        if (users == null || !users.Any())
+        {
+            Console.WriteLine("No users found :(.");
+            return;
+        }
+
+        Console.WriteLine("\n* User list *");
+        foreach (var user in users)
+        {
+            Console.WriteLine($"ID: {user.Id}, Name: {user.Name} , Email: {user.Email}, Type: {user.UserType}");
+        }
     }
 
     static async Task ReserveTicket(ICinemaService service)

@@ -16,6 +16,7 @@ namespace Cinema.Services
         Task CancelShowtimeAsync(int showtimeId);
         Task<User> GetUserByEmailAsync(string email);
         Task<User> AddUserAsync(string name, string email, string userType);
+        Task<List<User>> GetUsersAsync();
         Task<Ticket> ReserveTicketAsync(int showtimeId, int seatNumber, int? userId);
         Task RefundTicketAsync(int ticketId);
         Task<Sale> PurchaseTicketsAsync(int userId, List<int> ticketIds);
