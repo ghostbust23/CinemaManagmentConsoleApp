@@ -4,7 +4,9 @@ using Cinema.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 class Program
@@ -19,25 +21,17 @@ class Program
 
         while (true)
         {
-            Console.WriteLine("\n-*-*- Cinema Control -*-*-");
-            Console.WriteLine("1.Films list");
-            Console.WriteLine("2.Add Film");
-            Console.WriteLine("3.Show Halls");
-            Console.WriteLine("4.Add Hall");
-            Console.WriteLine("5.Showtimes list");
-            Console.WriteLine("6.Add showtime");
-            Console.WriteLine("7.Cancel showtime");
-            Console.WriteLine("8.Reserve ticket");
-            Console.WriteLine("9.Buy ticket");
-            Console.WriteLine("10.Refund ticket");
-            Console.WriteLine("11.Show Discounts");
-            Console.WriteLine("12.Add Discount");
-            Console.WriteLine("13.Apply Discount");
-            Console.WriteLine("14.Add user");
-            Console.WriteLine("15.Users list");
-            Console.WriteLine("16.Show Finance statistics");
-            Console.WriteLine("17.Logout");
-            Console.Write("Enter option: ");
+            Console.WriteLine("\n-*-*- Cinema Control -*-*");
+            Console.WriteLine("1.Film Control");
+            Console.WriteLine("2.Halls Control");
+            Console.WriteLine("3.Showtimes Control");
+            Console.WriteLine("4.Users Control");
+            Console.WriteLine("5.Tickets Control");
+            Console.WriteLine("6.Discounts Control");
+            Console.WriteLine("7.Financial Control");
+            Console.WriteLine("8.TODO-LIST");
+            Console.WriteLine("9.Logout");
+            Console.WriteLine("Choose option: ");
 
             var choice = Console.ReadLine();
 
@@ -46,54 +40,241 @@ class Program
                 switch (choice)
                 {
                     case "1":
-                        await ListFilms(cinemaService);
+                        while (true){
+                            Console.WriteLine("-*-*- Film Control -*-*");
+                            Console.WriteLine("1.Film List");
+                            Console.WriteLine("2.Add Film");
+                            Console.WriteLine("3.Back");
+                            
+                            var filmChoice = Console.ReadLine();
+                            try
+                            {
+                                switch (filmChoice)
+                                {
+                                    case "1":
+                                        await ListFilms(cinemaService);
+                                        break;
+                                    case "2":
+                                        await AddFilm(cinemaService);
+                                        break;
+                                    case "3":
+                                        break;
+                                    default:
+                                        Console.WriteLine("Invalid option :(");
+                                        break;
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine(ex.Message);
+                            }
+                            if (filmChoice == "3") break;
+                        }
                         break;
                     case "2":
-                        await AddFilm(cinemaService);
+                        while (true){
+                            Console.WriteLine("-*-*- Halls Control -*-*");
+                            Console.WriteLine("1.Halls List");
+                            Console.WriteLine("2.Add Hall");
+                            Console.WriteLine("3.Back");
+                            
+                            var hallChoice = Console.ReadLine();
+                            try
+                            {
+                                switch (hallChoice)
+                                {
+                                    case "1":
+                                        await ListHalls(cinemaService);
+                                        break;
+                                    case "2":
+                                        await AddHall(cinemaService);
+                                        break;
+                                    case "3":
+                                        break;
+                                    default:
+                                        Console.WriteLine("Invalid option :(");
+                                        break;
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine(ex.Message);
+                            }
+                            if (hallChoice == "3") break;
+                        }
                         break;
                     case "3":
-                        await ListHalls(cinemaService);
+                        while (true){
+                            Console.WriteLine("-*-*- ShowTime Control -*-*");
+                            Console.WriteLine("1.Showtime List");
+                            Console.WriteLine("2.Add Showtime");
+                            Console.WriteLine("3.Cancel Showtime");
+                            Console.WriteLine("4.Back");
+                            
+                            var filmChoice = Console.ReadLine();
+                            try
+                            {
+                                switch (filmChoice)
+                                {
+                                    case "1":
+                                        await ListShowtimes(cinemaService);
+                                        break;
+                                    case "2":
+                                        await AddShowtime(cinemaService);
+                                        break;
+                                    case "3":
+                                        await CancelShowtime(cinemaService);
+                                        break;
+                                    case "4":
+                                        break;
+                                    default:
+                                        Console.WriteLine("Invalid option :(");
+                                        break;
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine(ex.Message);
+                            }
+                            if (filmChoice == "4") break;
+                        }
                         break;
                     case "4":
-                        await AddHall(cinemaService);
+                        while (true){
+                            Console.WriteLine("-*-*- User Control -*-*");
+                            Console.WriteLine("1.Users List");
+                            Console.WriteLine("2.Add User");
+                            Console.WriteLine("3.Back");
+                            
+                            var userChoice = Console.ReadLine();
+                            try
+                            {
+                                switch (userChoice)
+                                {
+                                    case "1":
+                                        await ListUsers(cinemaService);
+                                        break;
+                                    case "2":
+                                        await RegisterUser(cinemaService);
+                                        break;
+                                    case "3":
+                                        break;
+                                    default:
+                                        Console.WriteLine("Invalid option :(");
+                                        break;
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine(ex.Message);
+                            }
+                            if (userChoice == "3") break;
+                        }
                         break;
                     case "5":
-                        await ListShowtimes(cinemaService);
+                        while (true){
+                            Console.WriteLine("-*-*- Ticket Control -*-*");
+                            Console.WriteLine("1.Reserve Ticket");
+                            Console.WriteLine("2.Buy Ticket");
+                            Console.WriteLine("2.Refund Ticket");
+                            Console.WriteLine("3.Back");
+                            
+                            var userChoice = Console.ReadLine();
+                            try
+                            {
+                                switch (userChoice)
+                                {
+                                    case "1":
+                                        await ReserveTicket(cinemaService);
+                                        break;
+                                    case "2":
+                                        await PurchaseTickets(cinemaService);
+                                        break;
+                                    case "3":
+                                        await RefundTicket(cinemaService);
+                                        break;
+                                    case "4":
+                                        break;
+                                    default:
+                                        Console.WriteLine("Invalid option :(");
+                                        break;
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine(ex.Message);
+                            }
+                            if (userChoice == "4") break;
+                        }
                         break;
                     case "6":
-                        await AddShowtime(cinemaService);
+                        while (true){
+                            Console.WriteLine("-*-*- Discount Control -*-*");
+                            Console.WriteLine("1.Discount List");
+                            Console.WriteLine("2.Add Discount");
+                            Console.WriteLine("3.Apply Discount");
+                            Console.WriteLine("4.Back");
+                            
+                            var userChoice = Console.ReadLine();
+                            try
+                            {
+                                switch (userChoice)
+                                {
+                                    case "1":
+                                        await ListDiscounts(cinemaService);
+                                        break;
+                                    case "2":
+                                        await AddDiscount(cinemaService);
+                                        break;
+                                    case "3":
+                                        await ApplyDiscount(cinemaService);
+                                        break;
+                                    case "4":
+                                        break;
+                                    default:
+                                        Console.WriteLine("Invalid option :(");
+                                        break;
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine(ex.Message);
+                            }
+                            if (userChoice == "4") break;
+                        }
                         break;
                     case "7":
-                        await CancelShowtime(cinemaService);
+                        while (true){
+                            Console.WriteLine("-*-*- Financial Control -*-*");
+                            Console.WriteLine("1.Financial Statistics");
+                            Console.WriteLine("2.Back");
+                            
+                            var userChoice = Console.ReadLine();
+                            try
+                            {
+                                switch (userChoice)
+                                {
+                                    case "1":
+                                        await ShowFinancialStats(cinemaService);
+                                        break;
+                                    case "2": ;
+                                        break;
+                                    default:
+                                        Console.WriteLine("Invalid option :(");
+                                        break;
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine(ex.Message);
+                            }
+                            if (userChoice == "2") break;
+                        }
                         break;
                     case "8":
-                        await ReserveTicket(cinemaService);
+                        Console.WriteLine("TO-DO: \n 1.add buy ticket func");
                         break;
                     case "9":
-                        await PurchaseTickets(cinemaService);
-                        break;
-                    case "10":
-                        await RefundTicket(cinemaService);
-                        break;
-                    case "11":
-                        await ListDiscounts(cinemaService);
-                        break;
-                    case "12":
-                        await AddDiscount(cinemaService);
-                        break;
-                    case "13":
-                        await ApplyDiscount(cinemaService);
-                        break;
-                    case "14":
-                        await RegisterUser(cinemaService);
-                        break;
-                    case "15":
-                        await ListUsers(cinemaService);
-                        break;
-                    case "16":
-                        await ShowFinancialStats(cinemaService);
-                        break;
-                    case "17":
                         return;
                     default:
                         Console.WriteLine("Wrong option!");
@@ -106,6 +287,7 @@ class Program
             }
         }
     }
+    
 
     static IServiceCollection ConfigureServices()
     {
@@ -125,10 +307,14 @@ class Program
        
         if (!context.Films.Any())
         {
-            context.Films.Add(new Film { Title = "Test Film", Duration = 120, ReleaseYear = 2023, Genre = "Horror", AgeRestriction = "18", Description = "Testing sql lol"});
-            context.Halls.Add(new Hall { Number = 1, Capacity = 60, Type = "Regular" });
-            context.Halls.Add(new Hall { Number = 2, Capacity = 15, Type = "VIP" });
-            context.Users.Add(new User { Name = "Adios Bobitos", Email = "Adios_Bobitost@gmail.com", UserType = "Client" });
+            context.Films.Add(new Film 
+                { Title = "Test Film", Duration = 120, ReleaseYear = 2023, Genre = "Horror", AgeRestriction = "18", Description = "Testing sql lol"});
+            context.Halls.Add(new Hall 
+                { Number = 1, Capacity = 60, Type = "Regular" });
+            context.Halls.Add(new Hall 
+                { Number = 2, Capacity = 15, Type = "VIP" });
+            context.Users.Add(new User 
+                { Name = "Adios Bobitos", Email = "Adios_Bobitost@gmail.com", UserType = "Client" });
             context.Discounts.Add(new Discount
             {
                 Description = "10% discount for new users",
@@ -136,7 +322,16 @@ class Program
                 StartDate = DateTime.Now.AddDays(-1),
                 EndDate = DateTime.Now.AddDays(10)
             });
+            
             await context.SaveChangesAsync();
+            // second await for create user in database and use user id in ticket(fixing it for 2 hrs LOL)
+            context.Showtimes.Add(new Showtime
+                { FilmId = 1, HallId = 1, DateTime = DateTime.Now.AddDays(1), TicketPrice = 100 });
+            context.Tickets.Add(new Ticket
+                { ShowtimeId = 1, UserId = 1, SeatNumber = 1, Price = 100 });
+            
+            await context.SaveChangesAsync();
+            
         }
     }
 
@@ -210,7 +405,7 @@ class Program
     {
         var showtimes = await service.GetShowtimesAsync();
         foreach (var showtime in showtimes)
-            Console.WriteLine($"{showtime.Id}. {showtime.Film.Title} in hall {showtime.Hall.Number} - {showtime.DateTime} ({showtime.TicketPrice} uah), Status: {showtime.Status}");
+            Console.WriteLine($"{showtime.Id}. {showtime.Film.Title} in hall {showtime.Hall.Number} - {showtime.DateTime} Price: {showtime.TicketPrice} EUR, Status: {showtime.Status}");
     }
 
     static async Task AddShowtime(ICinemaService service)
@@ -299,7 +494,7 @@ class Program
         var ticketIds = Console.ReadLine().Split(',').Select(int.Parse).ToList();
 
         var sale = await service.PurchaseTicketsAsync(user.Id, ticketIds);
-        Console.WriteLine($"Sale #{sale.Id} done!\n  Ammount: {sale.TotalAmount} uah, Bonuses: {user.BonusPoints}");
+        Console.WriteLine($"Sale #{sale.Id} done!\n  Ammount: {sale.TotalAmount} EUR, Bonuses: {user.BonusPoints}");
     }
 
     static async Task RefundTicket(ICinemaService service)
@@ -351,6 +546,6 @@ class Program
         DateTime endDate = DateTime.Parse(Console.ReadLine());
 
         var totalRevenue = await service.GetFinancialStatsAsync(startDate, endDate);
-        Console.WriteLine($"Total revenue : {totalRevenue} uah *_*");
+        Console.WriteLine($"Total revenue : {totalRevenue} EUR *_*");
     }
 }

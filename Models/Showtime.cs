@@ -11,5 +11,4 @@ public class Showtime
 
     public Film Film { get; set; } = null!;
     public Hall Hall { get; set; } = null!;
-    public List<Ticket> Tickets { get; set; } = new();
-}
+    public List<Ticket> Tickets { get; set; } = new(); }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="CinemaDb@." uuid="7b297c42-ce7c-48bf-ae40-922aed6689bb">
+    <data-source source="LOCAL" name="CinemaDb@." uuid="b1a709f6-e301-48f3-bf34-c58a5c389687">
       <driver-ref>sqlserver.jb</driver-ref>
       <synchronize>true</synchronize>
       <configured-by-url>true</configured-by-url>

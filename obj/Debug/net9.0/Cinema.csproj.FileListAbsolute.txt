@@ -164,10 +164,10 @@ C:\Users\Mr.Robot\Desktop\myprojects\Cinema\obj\Debug\net9.0\Cinema.GeneratedMSB
 C:\Users\Mr.Robot\Desktop\myprojects\Cinema\obj\Debug\net9.0\Cinema.AssemblyInfoInputs.cache
 C:\Users\Mr.Robot\Desktop\myprojects\Cinema\obj\Debug\net9.0\Cinema.AssemblyInfo.cs
 C:\Users\Mr.Robot\Desktop\myprojects\Cinema\obj\Debug\net9.0\Cinema.csproj.CoreCompileInputs.cache
+C:\Users\Mr.Robot\Desktop\myprojects\Cinema\obj\Debug\net9.0\Cinema.sourcelink.json
 C:\Users\Mr.Robot\Desktop\myprojects\Cinema\obj\Debug\net9.0\Cinema.csproj.Up2Date
 C:\Users\Mr.Robot\Desktop\myprojects\Cinema\obj\Debug\net9.0\Cinema.dll
 C:\Users\Mr.Robot\Desktop\myprojects\Cinema\obj\Debug\net9.0\refint\Cinema.dll
 C:\Users\Mr.Robot\Desktop\myprojects\Cinema\obj\Debug\net9.0\Cinema.pdb
 C:\Users\Mr.Robot\Desktop\myprojects\Cinema\obj\Debug\net9.0\Cinema.genruntimeconfig.cache
 C:\Users\Mr.Robot\Desktop\myprojects\Cinema\obj\Debug\net9.0\ref\Cinema.dll
-C:\Users\Mr.Robot\Desktop\myprojects\Cinema\obj\Debug\net9.0\Cinema.sourcelink.json
