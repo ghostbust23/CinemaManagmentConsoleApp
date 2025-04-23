@@ -2,7 +2,7 @@
 
 Using: 
 
-C#, DotNet, Entity Framework, Sql
+C#, .NET, Entity Framework, Sql
 
 
 ^_^ 
